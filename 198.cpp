@@ -7,18 +7,15 @@ using namespace std;
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        int n = nums.size();
-        if (n == 0) return 0;
-        if (n == 1) return nums[0];
-
-        int a1 = max(nums[0], nums[1]);
-        int a2 = nums[0];
-        
-        for (int i = 2; i < n; i++) {
-            int curr = max(a1, a2 + nums[i]);
-            a2 = a1;
-            a1 = curr;
+        if(nums.size() < 2) {
+            return nums[0];
         }
-        return a1;
+        vector<int> dp(nums.size(), 0);
+        dp[0] = nums[0];
+        dp[1] = max(nums[0], nums[1]);
+        for(int i = 2; i < nums.size(); i ++) {
+            dp[i] = max(nums[i] + dp[i-2], dp[i -1]);
+        }
+        return dp[nums.size()-1];
     }
 };
