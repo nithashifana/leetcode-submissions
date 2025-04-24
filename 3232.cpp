@@ -1,6 +1,10 @@
 // Find if digit game can be won
 // Easy
 
+#include <bits/stdc++.h>
+using namespace std;
+
+
 class Solution {
 public:
     bool canAliceWin(vector<int>& nums) {
