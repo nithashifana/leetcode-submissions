@@ -18,7 +18,7 @@ public:
         TreeNode* parent = nullptr;
         TreeNode* cur = root;
         
-        // Find the node to delete
+        // traverse
         while (cur && cur->val != key) {
             parent = cur;
             if (key > cur->val) {
@@ -30,7 +30,7 @@ public:
         
         if (!cur) return root;
         
-        // Node with only one child or no child
+        // Node with one child or no child
         if (!cur->left || !cur->right) {
             TreeNode* child = cur->left ? cur->left : cur->right;
             if (!parent) return child;
@@ -40,8 +40,8 @@ public:
                 parent->right = child;
             }
         } else {
-            // Node with two children
-            TreeNode* par = nullptr; // parent of right subtree's min node
+            // two children
+            TreeNode* par = nullptr;
             TreeNode* delNode = cur;
             cur = cur->right;
             while (cur->left) {
@@ -49,13 +49,13 @@ public:
                 cur = cur->left;
             }
             
-            if (par) { // if there was a left traversal
+            if (par) { // if left
                 par->left = cur->right;
                 cur->right = delNode->right;
             }
             cur->left = delNode->left;
             
-            if (!parent) return cur; // if deleting root
+            if (!parent) return cur; // if root
             
             if (parent->left == delNode) {
                 parent->left = cur;
