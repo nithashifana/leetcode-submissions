@@ -1,4 +1,4 @@
-// Split Array by Prime Indices©leetcode
+// Split Array by Prime Indices
 // Medium
 
 #include <bits/stdc++.h>
