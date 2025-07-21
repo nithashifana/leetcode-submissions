@@ -1,4 +1,4 @@
-// Check Divisibility by Digit Sum and Product©leetcode
+// Check Divisibility by Digit Sum and Product
 // Easy
 
 class Solution {
